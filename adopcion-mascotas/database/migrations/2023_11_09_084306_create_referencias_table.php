@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('referencias', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_cliente')->constrained('clientes');
+            $table->foreignId('id_cliente')->constrained('clientes')->onDelete('cascade');
             $table->string('nombres', 50);
             $table->string('contacto', 50);
             $table->string('parentesco', 50);

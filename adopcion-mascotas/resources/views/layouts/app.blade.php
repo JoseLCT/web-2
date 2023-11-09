@@ -25,7 +25,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('mascotas') }}">Mascotas</a>
+                        <a class="nav-link" href="{{ url('mascotas/home') }}">Mascotas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('clientes/home') }}">Clientes</a>

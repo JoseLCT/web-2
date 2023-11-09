@@ -8,22 +8,28 @@ use Illuminate\Validation\Rule;
 
 class MascotaController extends Controller
 {
+    public function main()
+    {
+        $mascotas = Mascota::where('esta_adoptado', false)->get();
+        return view('mascotas.main', compact('mascotas'));
+    }
+
     public function home()
     {
         $mascotas = Mascota::all();
         return view('mascotas.home', compact('mascotas'));
     }
-    public function index()
+
+    public function form($id = null)
     {
-        return Mascota::all();
+        $mascota = new Mascota();
+        if ($id != null) {
+            $mascota = Mascota::findOrFail($id);
+        }
+        return view('mascotas.form', compact('mascota'));
     }
 
-    public function form()
-    {
-        return view('mascotas.form');
-    }
-
-    public function store(Request $request)
+    public function store(Request $request, $id = null)
     {
         $request->validate([
             'nombre' => 'required',
@@ -33,7 +39,11 @@ class MascotaController extends Controller
             'tamano' => 'required',
             'esta_adoptado' => Rule::in(['on', 'off']),
         ]);
-        $mascota = new Mascota();
+        if ($id == null) {
+            $mascota = new Mascota();
+        } else {
+            $mascota = Mascota::findOrFail($id);
+        }
         $mascota->nombre = $request->nombre;
         $mascota->tipo = $request->tipo;
         $mascota->raza = $request->raza;
@@ -41,6 +51,13 @@ class MascotaController extends Controller
         $mascota->tamano = $request->tamano;
         $mascota->esta_adoptado = $request->esta_adoptado == 'on' ? true : false;
         $mascota->save();
-        return $mascota;
+        return redirect()->route('mascotas.home');
+    }
+
+    public function destroy($id)
+    {
+        $mascota = Mascota::findOrFail($id);
+        $mascota->delete();
+        return redirect()->route('mascotas.home');
     }
 }
