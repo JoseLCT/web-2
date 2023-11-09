@@ -1,0 +1,16 @@
+{
+    "name": "workj/teams",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jose Luis Cuellar",
+            "email": "work.jlct@gmail.com"
+        }
+    ],
+    "require": {
+    }
+}
