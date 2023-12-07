@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a42b08dd-d98b-4711-93b7-daa3544b57f3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/php.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/web-2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../airbnb-frontend/.eslintrc.cjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../airbnb-frontend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../airbnb-frontend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../airbnb-frontend/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../airbnb-frontend/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../airbnb-frontend/public/vite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../airbnb-frontend/src/assets/react.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../airbnb-frontend/src/components/Menu.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../airbnb-frontend/src/components/menu.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../airbnb-frontend/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../airbnb-frontend/src/main.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../airbnb-frontend/src/pages/home/Home.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../airbnb-frontend/src/pages/home/Home.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../airbnb-frontend/src/pages/maps/Maps.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../airbnb-frontend/src/pages/maps/maps.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../airbnb-frontend/src/services/AccommodationService.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../airbnb-frontend/src/services/LocationService.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../airbnb-frontend/vite.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../airbnb-frontend/yarn.lock" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2ZEKHxXVpUyfTV9In7fIStfEhXW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/Universidad/2023-2/Web-2/github/web-2/airbnb/airbnb-backend",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a42b08dd-d98b-4711-93b7-daa3544b57f3" name="Changes" comment="" />
+      <created>1701981716663</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701981716663</updated>
+      <workItem from="1701981717675" duration="27000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
