@@ -39,17 +39,21 @@ Route::get("/reservations/{id}", [ReservationController::class, "show"]);
 Route::group(["middleware" => "auth:sanctum"], function () {
     Route::get("/me", [AuthController::class, "me"]);
 
+    Route::get("/accommodations/me/{id}", [AccommodationController::class, "getByUserId"]);
+    Route::get("/accommodations_token/me", [AccommodationController::class, "getByToken"]);
     Route::post("/accommodations", [AccommodationController::class, "store"]);
     Route::match(["put", "patch"], "/accommodations/{id}", [AccommodationController::class, "update"]);
     Route::delete("/accommodations/{id}", [AccommodationController::class, "destroy"]);
 
     Route::post('/accommodations/{id}/images', [AccommodationImageController::class, 'store']);
     Route::delete('/accommodations/images/{imageId}', [AccommodationImageController::class, 'destroy']);
+    Route::delete('/accommodations_all/{id}/images', [AccommodationImageController::class, 'destroyAll']);
 
     Route::post("/locations", [LocationController::class, "store"]);
     Route::match(["put", "patch"], "/locations/{id}", [LocationController::class, "update"]);
     Route::delete("/locations/{id}", [LocationController::class, "destroy"]);
 
+    Route::get("/reservations_token/me", [ReservationController::class, "getByToken"]);
     Route::post("/reservations", [ReservationController::class, "store"]);
     Route::match(["put", "patch"], "/reservations/{id}", [ReservationController::class, "update"]);
     Route::delete("/reservations/{id}", [ReservationController::class, "destroy"]);

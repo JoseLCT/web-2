@@ -33,4 +33,14 @@ class Accommodation extends Model
     {
         return $this->hasMany(AccommodationImage::class)->select(["id", "accommodation_id", "url", "extension"]);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, "user_id")->select(["id", "fullname", "email"]);
+    }
+
+    public function location()
+    {
+        return $this->belongsTo(Location::class, "location_id")->select(["id", "country", "city"]);
+    }
 }

@@ -20,4 +20,15 @@ class Reservation extends Model
         "card_expiration",
         "card_cvv"
     ];
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class, "owner_id")->select(["id", "fullname", "email"]);
+    }
+
+
+    public function accommodation()
+    {
+        return $this->belongsTo(Accommodation::class, "accommodation_id")->select(["id", "name", "address", "type", "description", "rooms", "beds", "bathrooms", "capacity", "wifi", "night_price", "cleaning_fee", "start_date", "end_date", "lat", "lng"]);
+    }
 }

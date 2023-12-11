@@ -119,4 +119,22 @@ class AccommodationImageController extends Controller
             Response::HTTP_OK
         );
     }
+
+    public function destroyAll($id)
+    {
+        $accommodationImages = AccommodationImage::where('accommodation_id', $id)->get();
+        foreach ($accommodationImages as $accommodationImage) {
+            $path = substr($accommodationImage->url, 1);
+            if (file_exists($path)) {
+                unlink($path);
+            }
+            $accommodationImage->delete();
+        }
+        return response()->json(
+            array(
+                "message" => "AccommodationImages deleted successfully"
+            ),
+            Response::HTTP_OK
+        );
+    }
 }

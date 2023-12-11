@@ -16,7 +16,35 @@ class AccommodationController extends Controller
      */
     public function index()
     {
-        return Accommodation::with("images")->get();
+        return Accommodation::with("images", "location")->get();
+    }
+
+    public function getByUserId($id)
+    {
+        $user = User::find($id);
+        if ($user == null) {
+            return response()->json(
+                array(
+                    "message" => "User not found"
+                ),
+                Response::HTTP_NOT_FOUND
+            );
+        }
+        return Accommodation::with("images")->where("user_id", $id)->get();
+    }
+
+    public function getByToken(Request $request)
+    {
+        $user = $request->user();
+        if ($user == null) {
+            return response()->json(
+                array(
+                    "message" => "User not found"
+                ),
+                Response::HTTP_NOT_FOUND
+            );
+        }
+        return Accommodation::with("images")->where("user_id", $user->id)->get();
     }
 
     /**
@@ -33,7 +61,6 @@ class AccommodationController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->json()->all(), [
-            "user_id" => ['required', 'integer'],
             "location_id" => ['required', 'integer'],
             "name" => ['required', 'string'],
             "address" => ['required', 'string'],
@@ -55,8 +82,7 @@ class AccommodationController extends Controller
             return response()->json($validator->messages(),
                 Response::HTTP_BAD_REQUEST);
         }
-        $userId = $request->json()->get("user_id");
-        $user = User::find($userId);
+        $user = $request->user();
         if ($user == null) {
             return response()->json(
                 array(
@@ -65,6 +91,7 @@ class AccommodationController extends Controller
                 Response::HTTP_NOT_FOUND
             );
         }
+        $request->json()->set("user_id", $user->id);
         $locationId = $request->json()->get("location_id");
         $location = Location::find($locationId);
         if ($location == null) {
@@ -93,7 +120,7 @@ class AccommodationController extends Controller
                 Response::HTTP_NOT_FOUND
             );
         }
-        return Accommodation::with("location", "images")->find($id);
+        return Accommodation::with("user", "images", "location")->find($id);
     }
 
     /**

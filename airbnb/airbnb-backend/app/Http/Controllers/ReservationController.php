@@ -34,7 +34,6 @@ class ReservationController extends Controller
     {
         $validator = Validator::make($request->json()->all(), [
             "owner_id" => ['required', 'integer'],
-            "guest_id" => ['required', 'integer'],
             "accommodation_id" => ['required', 'integer'],
             "start_date" => ['required', 'date'],
             "end_date" => ['required', 'date'],
@@ -57,7 +56,8 @@ class ReservationController extends Controller
                 Response::HTTP_NOT_FOUND
             );
         }
-        $guestId = $request->json()->get("guest_id");
+        $guest = $request->user();
+        $guestId = $guest->id;
         $guest = User::find($guestId);
         if ($guest == null) {
             return response()->json(
@@ -85,6 +85,7 @@ class ReservationController extends Controller
                 Response::HTTP_NOT_FOUND
             );
         }
+        $request->json()->set("guest_id", $guestId);
         $reservation = Reservation::create($request->json()->all());
         return Reservation::find($reservation->id);
     }
@@ -129,7 +130,6 @@ class ReservationController extends Controller
         if ($request->method() == "PUT") {
             $validator = Validator::make($request->json()->all(), [
                 "owner_id" => ['required', 'integer'],
-                "guest_id" => ['required', 'integer'],
                 "accommodation_id" => ['required', 'integer'],
                 "start_date" => ['required', 'date'],
                 "end_date" => ['required', 'date'],
@@ -155,7 +155,8 @@ class ReservationController extends Controller
                 );
             }
         }
-        $guestId = $request->json()->get("guest_id");
+        $guest = $request->user();
+        $guestId = $guest->id;
         if ($guestId != null) {
             $guest = User::find($guestId);
             if ($guest == null) {
@@ -205,6 +206,13 @@ class ReservationController extends Controller
         }
         $reservation->update($request->json()->all());
         return $reservation;
+    }
+
+    public function getByToken(Request $request) {
+        $user = $request->user();
+        $userId = $user->id;
+        $reservations = Reservation::where('guest_id', $userId)->with("owner", "accommodation")->get();
+        return $reservations;
     }
 
     /**
