@@ -1,9 +1,272 @@
 .menu {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 100px;
+    background-color: #ffffff;
+}
+
+.logo_container {
+    height: 32px;
+    cursor: pointer;
+}
+
+.logo_container .logo {
+    height: 100%;
+}
+
+.options_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    box-shadow:
+        2px 2px 12px #cccccc,
+        -2px -2px 12px #fafafa;
+}
+
+.input_container {
+    position: relative;
+}
+
+.input_container label {
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #222222;
     transition: 0.5s;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.input_container input {
+    border-radius: 30px;
+    padding: 30px 20px 10px 30px;
+    border: none;
+}
+
+.input_container input:focus {
+    box-shadow:
+        8px 8px 16px #cccccc,
+        -8px -8px 16px #fafafa;
+    z-index: 1;
+}
+
+.input_container input:hover:not(:focus) {
+    background-color: #f5f5f5;
+}
+
+.p-datepicker span.p-highlight {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #222222;
+}
+
+.input_container.guests_container {
+    position: relative;
+}
+
+.input_container.guests_container .guests_dialog {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    width: 400px;
+    border-radius: 30px;
+    padding: 16px 32px;
+    background-color: #ffffff;
+    box-shadow:
+        2px 2px 4px #cccccc,
+        -2px -2px 4px #fafafa;
+    z-index: 1;
+    display: none;
+}
+
+.input_container.guests_container input:focus ~ .guests_dialog,
+.input_container.guests_container .guests_dialog:hover {
+    display: block;
+}
+
+.input_container.guests_container .guests_dialog .guests_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input_container.guests_container .guests_dialog .guests_container .info h4,
+.input_container.guests_container .guests_dialog .guests_container .info p {
+    margin: 0;
+    padding: 0;
+}
+
+.input_container.guests_container .guests_dialog .guests_container .info p {
+    font-size: 0.9rem;
+    color: #595959;
+}
+
+.input_container.guests_container .guests_dialog .guests_container .guest_input_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.input_container.guests_container .guests_dialog .guests_container .guest_input_container p {
+    width: 42px;
+    text-align: center;
+}
+
+.input_container.guests_container .guests_dialog .guests_container .guest_input_container button {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: 1px solid #cccccc;
+    color: #595959;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.input_container.guests_container .guests_dialog .guests_container .guest_input_container button:focus {
+    background-color: #f5f5f5;
+}
+
+.btn_search {
+    background-color: #ff385c;
+    margin: 0 8px 0 0;
+    border: none;
+    transition: 0.5s;
+}
+
+.btn_search:hover {
+    background-color: #e31c5c;
+}
+
+.btn_search:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.user_container {
+    height: 60px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #595959;
+    padding: 0 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    column-gap: 8px;
+    transition: box-shadow 0.5s;
+}
+
+.user_container:hover {
+    box-shadow:
+        2px 2px 4px #cccccc,
+        -2px -2px 4px #fafafa;
+}
+
+.user_container .menu_icon {
+    font-size: 1.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+.user_container .user_icon {
+    font-size: 2.5rem;
+}
+
+.auth_dialog h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #222222;
+    margin: 0 0 48px;
+    padding: 0;
+}
+
+.auth_dialog .p-dialog-header {
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px 12px 0 0;
+}
+
+.auth_dialog .p-dialog-header .p-dialog-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #222222;
+    text-align: center;
+}
+
+.auth_dialog .p-dialog-header-icon {
+    position: absolute;
+    left: 8px;
+    top: 8px;
+}
+
+.auth_dialog .p-dialog-content {
+    padding: 24px;
+    border-radius: 0 0 12px 12px;
+}
+
+.auth_dialog .p-dialog-content form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    row-gap: 32px;
+}
+
+.auth_dialog .p-dialog-content form label {
+    left: 16px;
+}
+
+.auth_dialog .p-dialog-content form input {
+    width: 100%;
+    border-radius: 12px;
+    height: 48px;
+    box-shadow: none;
+}
+
+.auth_dialog .p-dialog-content form #password {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.auth_dialog .p-dialog-content form .btn_save {
+    width: 100%;
+    height: 48px;
+    padding: 12px 0;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #ff385c 0%, #f12560 100%);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    box-shadow: none;
+    transition: all 0.2s ease-in-out;
+    margin: 16px 0;
+}
+
+.auth_dialog .p-dialog-content form .btn_save:active {
+    transform: scale(0.97);
+}
+
+.auth_dialog_footer {
+    width: 100%;
+    text-align: center;
+}
+
+.link{
+    cursor: pointer;
+    color: #ff385c;
+    text-decoration: none;
+    font-weight: 600;
 }

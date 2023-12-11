@@ -1,21 +1,22 @@
 
-import './Home.css';
+import './home.css';
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from 'primereact/button';
 import { getAccommodationList } from "../../services/AccommodationService";
 import { Galleria } from 'primereact/galleria';
 import "primereact/resources/themes/lara-light-indigo/theme.css";
-
 import 'primeicons/primeicons.css';
 import Menu from '../../components/Menu';
 
 
-
 const Home = () => {
-    const API_URL = "http://127.0.0.1:8000";
+    const navigate = useNavigate();
     const [accommodationList, setAccommodationList] = useState([]);
+    const apiUrl = import.meta.env.VITE_API_URL;
+    
     const itemTemplate = (item) => {
-        return <img src={`${API_URL}${item.url}`} style={{ width: '100%', display: 'block' }} />;
+        return <img src={`${apiUrl}${item.url}`} style={{ width: '100%', display: 'block' }} />;
     }
 
     useEffect(() => {
@@ -26,7 +27,6 @@ const Home = () => {
         getAccommodationList()
             .then(response => {
                 setAccommodationList(response);
-                console.log(response);
             })
             .catch(error => {
                 console.log(error);
@@ -34,7 +34,11 @@ const Home = () => {
     }
 
     const onClickMap = () => {
-        window.location.href = "/map";
+        navigate('/maps');
+    }
+
+    const onAccommodationClick = (id) => () => {
+        navigate(`/accommodation/${id}`);
     }
 
     return (
@@ -42,7 +46,7 @@ const Home = () => {
             <Menu />
             <div className="accommodation_container">
                 {accommodationList && accommodationList.map(item =>
-                    <div key={item.id} className='accommodation'>
+                    <div key={item.id} className='accommodation' onClick={onAccommodationClick(item.id)}>
                         <Galleria value={item.images} circular style={{ maxWidth: '640px' }}
                             showIndicators showThumbnails={false} item={itemTemplate} showIndicatorsOnItem={true} />
                         <h3 className='title'>{item.name}</h3>

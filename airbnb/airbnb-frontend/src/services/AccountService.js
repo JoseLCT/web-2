@@ -2,10 +2,11 @@ import axios from 'axios';
 
 const API_URL = "http://127.0.0.1:8000";
 
-export const getLocationList = () => {
+export const login = (email, password) => {
     return new Promise((resolve, reject) => {
-        axios.get(`${API_URL}/api/locations`)
+        axios.post(`${API_URL}/api/login`, { email, password })
             .then((response) => {
+                console.log(response);
                 resolve(response.data);
             }).catch((error) => {
                 console.log(error);
@@ -14,9 +15,22 @@ export const getLocationList = () => {
     });
 }
 
-export const insertLocation = (token, location) => {
+export const register = (fullName, email, password) => {
     return new Promise((resolve, reject) => {
-        axios.post(`${API_URL}/api/locations`, location, {
+        axios.post(`${API_URL}/api/register`, { fullname: fullName, email, password })
+            .then((response) => {
+                resolve(response.data);
+            }).catch((error) => {
+                console.log(error);
+                reject(error);
+            });
+    });
+
+}
+
+export const getAccount = (token) => {
+    return new Promise((resolve, reject) => {
+        axios.get(`${API_URL}/api/me`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }

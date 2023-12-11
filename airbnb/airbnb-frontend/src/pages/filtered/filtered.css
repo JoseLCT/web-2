@@ -1,0 +1,35 @@
+.filtered_menu_container {
+    padding: 0 24px;
+}
+
+.filtered_container .content {
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid #e0e0e0;
+}
+
+.filtered_container .content .accommodation_list_container {
+    width: 60%;
+    padding: 24px;
+}
+
+.filtered_container .content .accommodation_list_container .title_container .title {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 0 16px 0;
+    color: #222222;
+}
+
+.filtered_container .content .accommodation_list_container .accommodation_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: top;
+    column-gap: 40px;
+    position: relative;
+}
+
+.filtered_container .content .map_container {
+    width: 40%;
+    min-height: calc(100vh - 101px);
+}

@@ -1,0 +1,120 @@
+.maps_container {
+    height: calc(100vh - 110px);
+}
+
+.maps_menu_container {
+    padding: 0 80px;
+}
+
+.google_map_container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.autocomplete {
+    position: absolute;
+    top: 32px;
+    left: 32px;
+}
+
+.autocomplete input {
+    width: 300px;
+    height: 40px;
+    padding: 0 12px;
+    border-radius: 14px;
+    border: none;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Info Window */
+div.gm-style div.gm-style-iw-c {
+    width: 280px;
+    background-color: #ffffff;
+    border-radius: 14px;
+    box-shadow:
+        4px 4px 8px rgba(0, 0, 0, 0.1),
+        -4px -4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0;
+}
+
+/* Info Window Close Button */
+button.gm-ui-hover-effect {
+    width: 24px !important;
+    height: 24px !important;
+    left: 12px;
+    top: 12px !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    border-radius: 50%;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Info Window Close Button Icon */
+button.gm-ui-hover-effect span {
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+/* Info Window Content */
+.gm-style-iw-d {
+    overflow: hidden !important;
+}
+
+.galleria {
+    position: relative;
+}
+
+.galleria img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.galleria ul {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    list-style: none;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 8px;
+}
+
+.galleria ul button {
+    width: 10px;
+    height: 10px;
+}
+
+.info_window_information {
+    padding: 8px 8px 16px 8px;
+}
+
+.info_window_information .title {
+    margin: 0;
+}
+
+.info_window_information .footer {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-top: 4px;
+    column-gap: 8px;
+}
+
+.info_window_information .footer p {
+    margin: 0;
+}
+
+.info_window_information .footer .price {
+    margin: 0;
+    font-weight: 600;
+}
+
+.info_window_information .footer .price span {
+    font-weight: 400;
+}
